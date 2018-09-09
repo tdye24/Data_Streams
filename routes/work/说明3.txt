@@ -1,0 +1,67 @@
+5.js
+给定源流代号和是否展开子类标志，返回相应信息
+http://datastreams.club/5?source=6&isLoop=true         //展开子类
+[ { '經':
+     [ [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object] ],
+    uri: 'http://data.library.sh.cn/gj/classification/7h1xmsw66x73y3e7' },
+  { '史':
+     [ [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object] ],
+    uri: 'http://data.library.sh.cn/gj/classification/mo2ofdjmiqx0c4ki' },
+  { '子':
+     [ [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object] ],
+    uri: 'http://data.library.sh.cn/gj/classification/kkmxnxdzjzp3a4br' },
+  { '集':
+     [ [Object],
+       [Object] ],
+    uri: 'http://data.library.sh.cn/gj/classification/5qb6iqhiqpo33w80' },
+  { '叢':
+     [ [Object],
+       [Object],
+       [Object],
+       [Object] ],
+    uri: 'http://data.library.sh.cn/gj/classification/jjn6m5g8e2jixmyf' } ]
+
+Object中的数据格式为：
+{ '易': 
+     ['A', 'B', 'C', 'D'],
+  uri: 'http://data.library.sh.cn/gj/classification/w0j53aphudja622x' }
+
+
+
+http://datastreams.club/5?source=6&isLoop=false        //不展开子类
+[ { '經': [],
+    uri: 'http://data.library.sh.cn/gj/classification/7h1xmsw66x73y3e7' },
+  { '史': [],
+    uri: 'http://data.library.sh.cn/gj/classification/mo2ofdjmiqx0c4ki' },
+  { '子': [],
+    uri: 'http://data.library.sh.cn/gj/classification/kkmxnxdzjzp3a4br' },
+  { '集': [],
+    uri: 'http://data.library.sh.cn/gj/classification/5qb6iqhiqpo33w80' },
+  { '叢': [],
+    uri: 'http://data.library.sh.cn/gj/classification/jjn6m5g8e2jixmyf' } ]
+{ '經': [],
+  uri: 'http://data.library.sh.cn/gj/classification/7h1xmsw66x73y3e7' }
+
+
+注：
+若返回值为空，均返回空列表，即[]。

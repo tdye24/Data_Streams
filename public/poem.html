@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="icon" href="./images/poem.ico" type="image/x-icon">
+    <title>诗词</title>
+</head>
+<body>
+    <div id="nav">
+        <ul class="nav nav-tabs">
+            <li id="poem_nav" class="active"><a href="#">诗词</a></li>
+            <li id="antithesis_nav"><a href="#">对仗/对偶</a></li>
+        </ul>
+    </div>
+    <div id="poem" class="panel panel-success">
+        <div class="panel-body">
+            <div class="input-group">
+                <input type="text" name="poem_search" id="poem_search" class="form-control" placeholder="王之涣">
+                <span id="poem_submit" class="input-group-addon" style="cursor:pointer">检索诗词</span>
+            </div>
+            <div id="alert" class="text-danger"></div>
+            <div class="form-group">
+                检索方式：
+                <label for="poem_author" class="checkbox-inline"><input type="radio" name="poem_search_select" value="1" id="poem_author">作者</label>
+                <label for="poem_title" class="checkbox-inline"><input type="radio" name="poem_search_select" value="2" id="poem_title">诗题</label>
+                <label for="poem_line" class="checkbox-inline"><input type="radio" name="poem_search_select" value="3" id="poem_line">诗句</label>
+            </div>
+            <select name="dyna_select" id="dyna_select" class="form-control"></select>
+        </div>
+        <div id="poem_show" class="panel panel-success"></div>
+    </div>
+    <div id="antithesis" class="panel panel-success">
+        <div class="panel-body">
+            <div class="input-group">
+                <input type="text" name="antithesis_search" id="antithesis_search" placeholder="三个字以内，如天上人" class="form-control">
+                <span id="antithesis_submit" class="input-group-addon" style="cursor:pointer">检索</span>
+            </div>
+            <div id="anti_alert" class="text-danger"></div>
+        </div>
+        <div id="anti_show" class="panel panel-success">
+            <div class="panel-body text-success" id="anti_display">
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/poem.js"></script>
+</body>
+</html>

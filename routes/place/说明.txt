@@ -1,0 +1,22 @@
+1.js
+给定省名、市名、县名返回地点详细信息。
+http://datastreams.club/1?wd=濉溪县
+
+{ wd: '濉溪县',
+  country: '中国(中國)',
+  province: '安徽省',
+  city: '淮北市',
+  county: '濉溪县' }
+
+
+var fun = function(stress) {
+	var keys = Object.keys(stress);
+	for (var i = 1; i < keys.length; i++) {
+	process.stdout.write(stress[keys[i]]);
+	}
+}
+
+
+
+搜索关键词大于等于2个字！！！
+搜索结果不存在时，返回空对象{}（无键！）

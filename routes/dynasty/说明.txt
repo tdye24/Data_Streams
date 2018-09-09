@@ -1,0 +1,84 @@
+1.js
+处理帝王纪年请求，给定帝王纪年，返回公元纪年，以及年号信息。
+例：
+http://localhost:3000/dynasty/1?wd=明洪武2年
+{ data: '1369',
+  monarch: '太祖',
+  reignTitle: '洪武',
+  monarchName: '朱元璋',
+  label: '明洪武',
+  dynasty: '明',
+  begin: '1368',
+  end: '1398' }
+
+
+2.js
+处理公元纪年请求，给定公元纪年，返回帝王纪年列表信息。
+例：
+http://localhost:3000/dynasty/2?wd=1369
+{ data: '明,元至正29年,明2年,明洪武2年',
+  result:
+   [ { monarch: '惠宗',
+       reignTitle: '至正',
+       monarchName: '孛儿只斤妥懽帖睦尔',
+       label: '元至正',
+       dynasty: '元',
+       begin: '1341',
+       end: '1370' },
+     { monarch: '',
+       reignTitle: '',
+       monarchName: '',
+       label: '明',
+       dynasty: '明',
+       begin: '1368',
+       end: '1644' },
+     { monarch: '太祖',
+       reignTitle: '洪武',
+       monarchName: '朱元璋',
+       label: '明洪武',
+       dynasty: '明',
+       begin: '1368',
+       end: '1398' } ] }
+3.js
+处理朝代名称请求，给定朝代名称，返回朝代皇帝列表。
+例：http://localhost:3000/dynasty/3?wd=秦
+{ result:
+   [ { monarch: '',
+       reignTitle: '',
+       monarchName: '',
+       label: '秦',
+       dynasty: '秦',
+       begin: '-221',
+       end: '-206' },
+     { monarch: '始皇帝',
+       reignTitle: '',
+       monarchName: '嬴政',
+       label: '秦',
+       dynasty: '秦',
+       begin: '-221',
+       end: '-210' },
+     { monarch: '二世',
+       reignTitle: '',
+       monarchName: '嬴胡亥',
+       label: '秦',
+       dynasty: '秦',
+       begin: '-209',
+       end: '-207' },
+     { monarch: '',
+       reignTitle: '',
+       monarchName: '嬴子婴',
+       label: '秦',
+       dynasty: '秦',
+       begin: '-206',
+       end: '-206' },
+     { monarch: '',
+       reignTitle: '秦兴',
+       monarchName: '薛举',
+       label: '秦秦兴',
+       dynasty: '秦',
+       begin: '617',
+       end: '618' } ] }
+
+
+
+注：若返回值为空，返回列表返回为空[]、对象返回{key1: ''， key2: ''}

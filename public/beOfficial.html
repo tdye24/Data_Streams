@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>入仕任职</title>
+	<link rel="icon" href="./images/beOffical.ico" type="image/x-icon">
+	<style type="text/css">
+		p{
+			font-size: 35px;
+			font-family: KaiTi;
+			margin: 3px;
+		}
+		hr{
+			background-color: blue;
+		}
+		h4{
+			text-align: center;
+			font-size: 48px;
+			font-family: KaiTi;
+			color: #3c763d; 
+			background-color: #d6e9c6; 
+			margin-top: 40px;
+			margin-bottom: 40px; 
+			padding-top: 30px; 
+			padding-bottom: 30px;
+		}
+	</style>
+</head>
+<body>
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		let id = localStorage.getItem('id');
+		$.get(`http://www.datastreams.club:3000/character/2?wd=${id}`, function(data) {
+			console.log(data);
+			if(data[0].entry == '' && data[0].postings == '') {
+				console.log('无入仕任职记录！');
+				alert('无入仕任职记录！');
+				(function() {
+					window.history.go(-1);
+				})();
+			}else {
+				let entryHtml = ``;
+				for(var k = 0; k < data[0].entry.length; k ++) {
+					entryHtml += `<p><b>入仕方式</b>:${data[0].entry[k].door}</p>`;
+					entryHtml += `<p><b>入仕类型</b>:${data[0].entry[k].type}</p>`;
+					entryHtml += `<p><b>备&emsp;&emsp;注</b>:${data[0].entry[k].info}</p>`;
+					entryHtml += `<hr/>`;
+				}
+				$('#rushidata').html(entryHtml);
+
+				let postingsHtml = ``;
+				for(var j = 0; j < data[0].postings.length; j ++) {
+					postingsHtml += `<p><b>官&nbsp;职&nbsp;名</b>:${data[0].postings[j].name}</p>`;
+					postingsHtml += `<p><b>出任类型</b>:${data[0].postings[j].type}</p>`;
+					postingsHtml += `<p><b>出任时间</b>:${data[0].postings[j].firstYear}</p>`;
+					postingsHtml += `<p><b>卸任时间</b>:${data[0].postings[j].lastYear}</p>`;
+					postingsHtml += `<hr/>`;
+				}
+				$('#renzhidata').html(postingsHtml);
+
+			}
+		});
+
+	</script>
+	<div class="container">
+		<div id="rushi">
+			<h4>入仕</h4>
+			<div id="rushidata">
+			</div>
+			
+		</div>
+		<div id="renzhi">
+			<h4>任职</h4>
+			<div id="renzhidata"></div>
+		</div>
+	</div>
+</body>
+</html>

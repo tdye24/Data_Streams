@@ -1,0 +1,24 @@
+{
+  "name": "data-streams",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "server": "node ./bin/www",
+    "wechat": "node ./wechat.js",
+    "start": "concurrently \"npm:server\" \"npm:wechat\""
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cookie-parser": "~1.4.3",
+    "csv": "^3.1.0",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "json2csv": "^4.2.0",
+    "morgan": "~1.9.0",
+    "nodejs-websocket": "^1.7.1",
+    "xml2js": "^0.4.19",
+    "xmlreader": "^0.2.3"
+  }
+}

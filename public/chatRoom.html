@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聊天室</title>
+	<link rel="icon" type="image/x-icon" href="./images/chat.ico">
+	<style type="text/css">
+		body{
+		  background:url("./images/background/default.jpg") no-repeat;
+		  background-size: 100%;
+		  background-attachment: fixed;
+		}
+		input[type="text"]{
+		  box-sizing: border-box;
+		  text-align:left;
+		  font-size:2.3em;
+		  height:100px;
+		  border-radius:4px;
+		  border:3px solid #c8cccf;
+		  color:#000;
+		  display:block;
+		  outline:0;
+		  padding:0 1em;
+		  text-decoration:none;
+		}
+		input[type="text"]:focus{
+		  border:1px solid #E0E0E0;
+		}
+		button{
+			height: 100px;
+			font-size: 35px;
+			background-color: #E0E0E0;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body id="body">
+	<div id="namSection">
+		<input type="text" id="name" oninput="check1()" style="width: 80%; float: left;" placeholder="请输入用户名">
+		<button id="setname" disabled="true" style="width: 20%; float: left">进入房间</button>
+	</div>
+
+	<div style="position: absolute; bottom: 100px;width: 100%; position: fixed; opacity: 0.7">
+		<button type="button" style="width: 50%; float: left; background-color: white" onclick="backToTop()">返回顶部</button>
+		<button type="button" style="width: 50%; float: left; background-color: white" onclick="changeBg()">切换背景</button>
+	</div>
+	
+	<div style="position: absolute; bottom: 0px;width: 100%; position: fixed;">
+		<input type="text" id="text" oninput="check2()" style="width: 80%; float: left;">
+		<button type="button" id="btn" disabled="true" style="width: 20%; float: left;">发送</button>
+	</div>
+	<div id="container">
+		
+	</div>
+	
+	
+</body>
+</html>
+<script type="text/javascript">
+	var ws = null;
+	var setnameObtn = document.getElementById('setname');
+	var sendObtn = document.getElementById('btn');
+	function check1() {
+		let name = document.getElementById('name').value;
+		if(name === '') {
+			setnameObtn.setAttribute('disabled', true);
+		}else{
+			setnameObtn.removeAttribute('disabled');
+		}
+	}
+
+	function check2() {
+		let text = document.getElementById('text').value;
+		if(text === '') {
+			sendObtn.setAttribute('disabled', true);
+		}else{
+			sendObtn.removeAttribute('disabled');
+		}
+	}
+
+	function backToTop() {
+	    $('html,body').stop().animate({
+	        scrollTop:"0px"
+	    },"slow")
+	}
+
+	var  i  = 0;
+	function changeBg() {
+		var pics = ['./images/background/1.jpg', './images/background/2.jpg', './images/background/3.jpg', './images/background/4.jpg', './images/background/5.jpg', './images/background/default.jpg'];
+		document.getElementById('body').style.backgroundImage = 'url(' + pics[(i++)%6] + ')';
+	}
+
+	setnameObtn.onclick = function() {
+
+		var color = color();
+
+		function color(){
+             var r=Math.floor(Math.random()*256);
+             var g=Math.floor(Math.random()*256);
+             var b=Math.floor(Math.random()*256);
+             return "rgb("+r+','+g+','+b+")";
+        }
+
+		ws = new WebSocket('ws://www.datastreams.club:8000');
+		let name = document.getElementById('name').value;
+
+		ws.onopen = function() {
+			document.getElementById('name').value = '';
+			setnameObtn.setAttribute('disabled', true);
+			document.getElementById('name').setAttribute('disabled', true);
+			document.getElementById('namSection').style.display = 'none';
+			ws.send(JSON.stringify({
+				type: 'info',
+				name: name,
+				color: color,
+			}));
+		}
+
+		document.getElementById('btn').onclick = function() {
+			ws.send(JSON.stringify({
+				type: 'message',
+				name: name,
+				color: color,
+				text: document.getElementById('text').value,
+			}))
+
+			document.getElementById('text').value = '';
+			document.getElementById('btn').setAttribute('disabled', true);
+		}
+		ws.onmessage = function(e) {
+			let data = JSON.parse(e.data);
+			let color = data.color;
+
+			var Dat = new Date();
+			var year = Dat.getFullYear();
+			var month = Dat.getMonth();
+			var date = Dat.getDate();
+			var day = Dat.getDay();
+			var hour = Dat.getHours();
+			var minute = Dat.getMinutes();
+			var second = Dat.getSeconds();
+
+			switch(day){
+				case 1:
+					day = '一';
+					break;
+				case 2:
+					day = '二';
+					break;
+				case 3:
+					day = '三';
+					break;
+				case 4:
+					day = '四';
+					break;
+				case 5:
+					day = '五';
+					break;
+				case 6:
+					day = '六';
+					break;
+				case 7:
+					day = '日';
+					break;
+				default:
+					break;
+			}
+
+			switch(data.type) {
+				case 'info':
+					var p = document.createElement('p');
+					p.style.color = '#00f';
+					p.style.fontWeight = '900';
+					p.style.fontSize = '48px';
+					p.style.color = color;
+
+					p.innerHTML = data.name + '进入房间！' + year + '-' + month + '-' + date + ' ' + '星期' + day + ' ' + hour + ':' + minute + ':' + second;
+					break;
+				case 'message':
+					var p = document.createElement('p');
+					p.style.color = '#000';
+					p.style.fontSize = '48px';
+					p.innerHTML = data.name + '：' + data.text + ' ' + hour + ':' + minute + ':' + second;
+					p.style.color = color;
+					break;
+				default:
+					break;
+
+			}
+			var container = document.getElementById('container');
+			container.insertBefore(p, container.children[0]);
+			
+		}
+	}
+</script>

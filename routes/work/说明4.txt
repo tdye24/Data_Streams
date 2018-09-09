@@ -1,0 +1,61 @@
+6.js
+给定藏书印文，返回印文相关信息
+http://datastreams.club/6?wd=宋
+
+返回结果为：
+[ { sealCharacters: '百宋一廛',
+    img: [ 'http://img.library.sh.cn/gj/seal/i5ldesbx6lcipri1.jpg' ],
+    owner: [ '黄丕烈' ],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋存書室',
+    img: [ 'http://img.library.sh.cn/gj/seal/mb0eogauu8xmqvga.jpg' ],
+    owner: [],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋存書室',
+    img: [ 'http://img.library.sh.cn/gj/seal/tu5r83vcdwtrx3tb.jpg' ],
+    owner: [],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋本',
+    img: [ 'http://img.library.sh.cn/gj/seal/4127beyf0uj68jor.jpg' ],
+    owner: [ '汪士钟' ],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '百宋一廛',
+    img: [ 'http://img.library.sh.cn/gj/seal/f6tq6bq14ncsxopf.jpg' ],
+    owner: [ '黄丕烈' ],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋廛一翁',
+    img:
+     [ 'http://img.library.sh.cn/gj/seal/xucvs5lq0qebzbl0.jpg',
+       'http://img.library.sh.cn/gj/seal/xucvs5lq0qebzbl0.jpg' ],
+    owner: [ '黄丕烈' ],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋本',
+    img:
+     [ 'http://img.library.sh.cn/gj/seal/tg1sobhf25g0nbp7.jpg',
+       'http://img.library.sh.cn/gj/seal/tg1sobhf25g0nbp7.jpg' ],
+    owner: [ '吴骞' ],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋存書室',
+    img: [ 'http://img.library.sh.cn/gj/seal/77vezz8nonbezuj3.jpg' ],
+    owner: [],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋本',
+    img:
+     [ 'http://img.library.sh.cn/gj/seal/xsm1dzthx7irrrb2.jpg',
+       'http://img.library.sh.cn/gj/seal/xsm1dzthx7irrrb2.jpg',
+       'http://img.library.sh.cn/gj/seal/xsm1dzthx7irrrb2.jpg',
+       'http://img.library.sh.cn/gj/seal/xsm1dzthx7irrrb2.jpg',
+       'http://img.library.sh.cn/gj/seal/xsm1dzthx7irrrb2.jpg' ],
+    owner: [ '毛晋' ],
+    libliotheca: [ [Object] ] },
+  { sealCharacters: '宋存書室',
+    img: [ 'http://img.library.sh.cn/gj/seal/3l6l3kzssrs4usjd.jpg' ],
+    owner: [],
+    libliotheca: [ [Object] ] } ]
+
+Object的数据格式为：
+{ name: '藝蕓書舍',
+    description: '説到近代藏書家，人們幾乎無一。' }
+
+注：
+返回值为空时均返回空列表，即[]。

@@ -1,0 +1,87 @@
+1.js
+给定关键词返回相关作品
+http://datastreams.club/1?wd=三国
+
+
+返回结果：
+[ { title: '三國文二十卷',
+    creator: [ [Object] ],
+    version: '明崇禎10年(1637) 刻本',
+    class: '集部--總集類--斷代類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/1mcj3rbrku35o3wx' },
+  { title: '三國雜事二卷',
+    creator: [ [Object] ],
+    version: '中華民國75年(1986) 影印本',
+    class: '史部--史評類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/4o6kn2yzug4hsdx2' },
+  { title: '三国志六十五卷',
+    creator: [ [Object] ],
+    version: '中華民國75年(1986) 影印本',
+    class: '史部--正史類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/70fsmnwi3lsmke60' },
+  { title: '三國志補注六卷',
+    creator: [ [Object] ],
+    version: '中華民國75年(1986) 影印本',
+    class: '史部--正史類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/aovv3iisy0ti6xwh' },
+  { title: 'Dong Lai Xian Sheng San Guo Zhi Xiang Jie Er Shi Juan',
+    creator: [ [Object] ],
+    version: '明正德11年(1516) 刻本',
+    class: '史部--史抄類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/bj6rn88m2fdk4shp' },
+  { title: '三国志六十五卷',
+    creator: [ [Object] ],
+    version: '明萬曆24年(1596) 刻本',
+    class: '史部--紀傳類--斷代類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/djwzkwx5zjcberjd' },
+  { title: '三国志六十五卷',
+    creator: [ [Object] ],
+    version: '明萬曆24年(1596) 刻本',
+    class: '史部--紀傳類--斷代類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/dr57asq21mtvpev8' },
+  { title: 'San Guo Wen Ji Er Shi Si Juan',
+    creator: [ [Object] ],
+    version: '明崇禎8年(1635) 刻本',
+    class: '集部--總集類--斷代類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/dv1w1obboavinv8i' },
+  { title: '三国志辨误三卷',
+    creator: [],
+    version: '中華民國75年(1986) 影印本',
+    class: '史部--正史類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/g2kjuoa45gk2tnwr' },
+  { title: 'San Guo Zhi Liu Shi Wu Juan',
+    creator: [ [Object] ],
+    version: '明天啟6年(1626) 刻本',
+    class: '史部--紀傳類--斷代類',
+    uri: 'http://data.library.sh.cn/gj/resource/instance/il52870qv2yvjkxf' } ]
+
+
+注：
+creator中Object格式为： { temporal: '晉', label: '陳壽' } 或 { temporal: '', label: '' }  //值不存在是为‘’
+如creator列表返回值为空则返回空列表即[]
+
+2.js
+给定作品uri返回作品馆藏信息
+http://datastreams.club/2?wd=http://data.library.sh.cn/gj/resource/instance/1mcj3rbrku35o3wx
+
+
+返回结果：
+{ title: '三國文二十卷',
+  creator: [ { temporal: '明', label: '張采' } ],
+  contribution: [ { temporal: '明', label: '張采', role: '輯' } ],
+  version: '明崇禎10年(1637) 刻本',
+  class: '集部--總集類--斷代類',
+  extent: '20冊',
+  holding:
+   [ { shelfMark: '線善17454-73', doi: 'STGJ099731', heldBy: [Array] } ] }
+
+hoding列表中的元素数据格式为：
+{ shelfMark: '線善17454-73',
+    doi: 'STGJ099731',
+    heldBy: [ [Object] ] } 
+
+heldBy列表中的元素数据格式为：
+{ address: '上海市 徐匯區 淮海中路1555號', label: '上海圖書館' } 
+
+
+注：若返回值为空，均返回空列表！

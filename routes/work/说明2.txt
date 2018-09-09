@@ -1,0 +1,41 @@
+3.js
+给定作品名称和源流类别，返回作品的基本信息。
+http://datastreams.club/3?wd=三国&source=7
+
+返回结果：
+[ { title: '三國志',
+    creator: [ [Object], [Object] ],
+    uri: 'http://data.library.sh.cn/gj/resource/work/ij46jbu7d77qjydw' },
+  { title: '論三國志',
+    creator: [ [Object] ],
+    uri: 'http://data.library.sh.cn/gj/resource/work/geqfirdc08dahphm' },
+  { title: '三國志評',
+    creator: [ [Object] ],
+    uri: 'http://data.library.sh.cn/gj/resource/work/2iz0205xy5xvzaeg' } ]
+
+creator列表中Object数据格式为：
+{ temporal: '晉', label: '陳壽' }
+
+注：若返回值为空，则返回空列表！
+
+4.js
+给定作品uri，返回作品源流列表
+http://datastreams.club/4?wd=http://data.library.sh.cn/gj/resource/work/ij46jbu7d77qjydw
+返回结果为：
+[ { title: '宋史藝文志',
+    time: '元',
+    creator: '脱脱',
+    body: '陈寿《三国志》六十五卷裴松之注' },
+  { title: '隋書經籍志',
+    time: '唐',
+    creator: '魏征',
+    body: '《三国志》六十五卷（叙录一卷，晋太子中庶子陈寿撰，宋太中大夫裴松之注。）' },
+  { title: '郘亭知見傳本書目',
+    time: '清',
+    creator: '莫友芝',
+    body: '晉陳壽撰。宋裴松之注。 南、北監本。 汲古閣本。 殿本。 南監本，注作大字，低一格。 又陳仁錫刊本，有評點。 路小 洲有宋刊《蜀志》，紙背皆乾、道等年公牘尾。 蘇城汪氏有宋本精抄補五卷。 黃蕘圃有宋刊單行《吳志》二十卷，今歸郁泰峰。 天一 閣有元大德丙午朱天錫刊本。 元刻本半頁十行，行十九字。注廿二、三字不等。 明嘉靖蔡宙等刊本。 《述古堂目》有單行裴注本。 愛日精廬北宋刊《三國志》殘本，每頁二十六行，行二十五字。 又元大德本《三國志》，末有大德丙午日南志前進士朱天錫《跋》，謂江 左憲臺命諸路學校，分派《十七史》鐫梓。池庠所刊者，《三國志》。池郡士多貧窶，是舉幾中輟。總管王公表倡之，竣事。' } ]
+
+
+注：
+返回结果为空时，返回空列表即[]
+属性值返回为空时返回空字符串，即‘’。

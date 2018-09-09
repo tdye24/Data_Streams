@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#display {
+    width: 100vw;
+}
+
+#title {
+    width: 100vw;
+    height: 10vh;
+    background-color: white;
+}
+
+#title h3 {
+    line-height: 10vh;
+    text-align: center;
+}
+
+#brief_intro {
+    width: 90vw;
+    height: 34vh;
+    padding: 3vh 5vw;
+    background-color: #e0e0e0;
+}
+
+#member {
+    width: 90vw;
+    height: 34vh;
+    padding: 3vh 5vw;
+    background-color: white;
+}
+
+#contact_us {
+    width: 90vw;
+    height: 34vh;
+    padding: 3vh 5vw;
+    background-color: #e0e0e0;
+}
+
+#copyright {
+    width: 100vw;
+    height: 15vh;
+    background-color: white;
+}
+
+.flex-column {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.item {
+    flex-grow: 1;
+    flex-shrink: 1;
+}

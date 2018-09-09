@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="icon" href="./images/work.ico" type="image/x-icon">
+    <title>古籍</title>
+</head>
+<body>
+    <div id="nav">
+        <ul class="nav nav-tabs">
+            <li id="ancient_books" class="active"><a>古籍</a></li>
+            <li id="headstream"><a>源流</a></li>
+            <li id="classification"><a>分类</a></li>
+            <li id="books_collections"><a>印文</a></li>
+        </ul>
+    </div>
+    <div id="top"></div>
+
+
+    <div id="ancient_books_div">
+        <div class="input-group">
+            <input type="text" name="ancient_books_input" id="ancient_books_input" class="form-control" placeholder="关键字，如三国志">
+            <span id="ancient_books_search" class="input-group-addon" style="cursor:pointer">检索</span>
+        </div>
+        <div id="an_alert"></div>
+        <div id="an_info"></div>
+        <div id="ancient_books_show_1" class="panel panel-success"></div>
+        <div id="ancient_books_show_2" class="panel panel-success"></div>
+    </div>
+
+    <div id="headstream_div">
+        <div id="headstream_div_1">
+            <select name="headstream_select" id="headstream_select" class="form-control">
+                <option value="2">崇文總目</option>
+                <option value="3">郘亭知見傳本書目</option>
+                <option value="4">四庫全書總目提要</option>
+                <option value="7">隋書經籍志</option>
+                <option value="8">漢書藝文志</option>
+                <option value="9">明史藝文志</option>
+                <option value="10">清史稿藝文志</option>
+                <option value="11">舊唐書經籍志</option>
+                <option value="12">新唐書藝文志</option>
+                <option value="13">宋史艺文志</option>
+                <option value="15">郡齋讀書志</option>
+                <option value="18">鐵琴銅劍樓藏書目錄</option>
+            </select>
+        </div>
+        <div id="headstream_div_2" class="input-group">
+            <input type="text" name="headstream_input" id="headstream_input" class="form-control" placeholder="关键字，如三国志">
+            <span id="headstream_search" class="input-group-addon" style="cursor:pointer">检索</span>
+        </div>
+        <div id="head_alert"></div>
+        <div id="head_info"></div>
+        <div id="headstream_show_1" class="panel panel-success"></div>
+        <div id="headstream_show_2" class="panel panel-success"></div>
+    </div>
+
+    <div id="classification_div">
+        <p>选择来源</p>
+        <select name="classification_select1" id="classification_select1" class="form-control">
+            <option value="1">中國古籍善本書目</option>
+            <option value="2">崇文總目</option>
+            <option value="3">郘亭知見傳本書目</option>
+            <option value="4">四庫全書總目提要</option>
+            <option value="5">伯克萊中文古籍善本書志</option>
+            <option value="6">上海圖書館古籍數據庫</option>
+            <option value="14">中國古籍總目</option>
+            <option value="15">郡齋讀書志</option>
+            <option value="18">鐵琴銅劍樓藏書目錄</option>
+        </select>
+        <p>显示子类</p>
+        <select name="classification_select2" id="classification_select2" class="form-control">
+            <option value="false">否</option>
+            <option value="true">是</option>
+        </select>
+        <button id="classification_search" class="form-control btn-info">检索</button>
+        <div id="classification_show" class="panel panel-success"></div>
+    </div>
+
+
+
+    <div id="books_collections_div">
+        <div class="input-group">
+            <input type="text" name="books_collections_input" id="books_collections_input" class="form-control" placeholder="藏书印文，如宋">
+            <span id="books_collections_search" class="input-group-addon" style="cursor:pointer">检索</span>
+        </div>
+        <div id="book_alert" class="text-danger"></div>
+        <div id="col_info"></div>
+        <div id="books_collections_show" class="panel panel-success"></div>
+    </div>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/book.js"></script>
+</body>
+</html>

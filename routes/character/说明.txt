@@ -1,0 +1,70 @@
+1.js
+给定人名，返回人物具体信息，以及亲属ID。
+http://datastreams/1?wd=巴金
+返回值：
+[ { id: '123647',
+    name: '巴金',
+    gender: '男',
+    dynasty: '清',
+    birth: '',
+    death: '公元1797年(清嘉慶2年)',
+    alias: [],
+    address: [ [Object] ],
+    relation: [] } ]
+
+http://datastreams/1?wd=曹操
+[ { id: '30257',
+    name: '曹操',
+    gender: '男',
+    dynasty: '東漢',
+    birth: '公元155年',
+    death: '公元220年',
+    alias: [],
+    address: [ [Object] ],
+    relation:
+     [ [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object],
+       [Object] ] },
+  { id: '339524',
+    name: '曹操',
+    gender: '男',
+    dynasty: '三國魏',
+    birth: '',
+    death: '',
+    alias: [ [Object], [Object] ],
+    address: [],
+    relation: [] },
+  { id: '437640',
+    name: '羅汝才',
+    gender: '男',
+    dynasty: '清',
+    birth: '',
+    death: '公元1643年(明崇禎16年)',
+    alias: [ [Object] ],
+    address: [ [Object], [Object] ],
+    relation: [ [Object], [Object] ] } ]
+
+注意：
+alias中Object格式为：{AliasType:'字’,AliasName: '介甫'}
+address中Object格式为：
+{ address1: '臨川',
+  address2: '撫州',
+  address3: '江南西路',
+  address4: '宋朝',
+  address5: '',
+  address6: '' }
+relation中Object格式为：
+{ kinPersonId: '100909',
+  kinPersonName: undefined,
+  kinRelName: '十世孫' }
+
+若所搜人物不存在，则返回值为空列表！
+
+2.js
+给定人物ID，返回人物具体信息，以及亲属ID。
+以下同上

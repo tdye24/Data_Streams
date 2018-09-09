@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="icon" href="./images/place.ico" type="image/x-icon">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+    body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0; padding: 0; font-family:"微软雅黑";}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=b68hH8YN2OPnl8zL1WGK2SuITUyTitRw"></script>
+    <title>地点</title>  
+    <style type="text/css">
+        div#places_display{
+            background-color: WhiteSmoke;
+            position: fixed; 
+            opacity: 1;
+            left: 0px;
+            bottom: 0px;
+            z-index: 999;
+        }
+        body, html,#allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin:0;
+            font-family:"微软雅黑";
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="input-group">
+        <input type="text" name="places_input" id="places_input" class="form-control" placeholder="北京">
+        <span id="palce_search" class="input-group-addon" style="cursor:pointer">检索</span>
+    </div>
+    <div id="places_display"></div>
+    <div id="allmap">
+    </div>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/place.js"></script>
+</body>
+</html>
